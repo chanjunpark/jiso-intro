@@ -33,17 +33,7 @@
     }
     .container { max-width: 720px; margin: 0 auto; padding: 0 24px; }
 
-    header { padding: 24px 0; }
-    header .container { display: flex; align-items: center; gap: 10px; }
-    header img { width: 34px; height: 34px; border-radius: 9px; }
-    .logo-name {
-      font-size: 20px; font-weight: 800; letter-spacing: -0.02em;
-      background: var(--grad);
-      -webkit-background-clip: text; background-clip: text;
-      -webkit-text-fill-color: transparent; color: transparent;
-    }
-
-    .hero { padding: 56px 0 64px; text-align: center; position: relative; overflow: hidden; }
+    .hero { padding: 80px 0 64px; text-align: center; position: relative; overflow: hidden; }
     .hero::before {
       content: "";
       position: absolute; inset: 0;
@@ -142,13 +132,6 @@
   </style>
 </head>
 <body>
-  <header>
-    <div class="container">
-      <img src="logo.png" alt="지소 로고" />
-      <span class="logo-name">지소</span>
-    </div>
-  </header>
-
   <main>
     <section class="hero">
       <div class="container">
