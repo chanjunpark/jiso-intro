@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>지소 — 지인이 소개해주는 소개팅</title>
+  <meta name="description" content="지소는 믿을 수 있는 지인 네트워크를 통해 새로운 인연을 소개받는 소개팅 서비스입니다." />
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    :root {
+      --bg: #fffdfa;
+      --text: #1f1b16;
+      --muted: #6b635a;
+      --accent: #e8543f;
+      --accent-soft: #fdeae6;
+      --card: #ffffff;
+      --border: #eee7de;
+    }
+    body {
+      font-family: "Apple SD Gothic Neo", "Pretendard", "Noto Sans KR", -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    .container { max-width: 720px; margin: 0 auto; padding: 0 24px; }
+
+    header { padding: 28px 0; }
+    .logo { font-size: 20px; font-weight: 800; color: var(--accent); letter-spacing: -0.02em; }
+
+    .hero { padding: 72px 0 64px; text-align: center; }
+    .hero h1 {
+      font-size: clamp(28px, 6vw, 44px);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1.3;
+      margin-bottom: 20px;
+    }
+    .hero h1 em { font-style: normal; color: var(--accent); }
+    .hero p {
+      font-size: clamp(15px, 2.5vw, 18px);
+      color: var(--muted);
+      max-width: 480px;
+      margin: 0 auto;
+    }
+    .badge {
+      display: inline-block;
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-size: 13px;
+      font-weight: 700;
+      padding: 6px 14px;
+      border-radius: 999px;
+      margin-bottom: 24px;
+    }
+
+    .features { padding: 24px 0 72px; display: grid; gap: 16px; }
+    @media (min-width: 600px) { .features { grid-template-columns: repeat(3, 1fr); } }
+    .feature {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 28px 22px;
+    }
+    .feature .icon { font-size: 28px; margin-bottom: 12px; }
+    .feature h3 { font-size: 16px; font-weight: 700; margin-bottom: 8px; letter-spacing: -0.01em; }
+    .feature p { font-size: 14px; color: var(--muted); }
+
+    .cta { text-align: center; padding: 0 0 80px; }
+    .cta p { color: var(--muted); font-size: 15px; margin-bottom: 16px; }
+    .cta a {
+      display: inline-block;
+      background: var(--accent);
+      color: #fff;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 15px;
+      padding: 14px 32px;
+      border-radius: 12px;
+    }
+
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 32px 0 48px;
+      font-size: 13px;
+      color: var(--muted);
+      text-align: center;
+    }
+    footer a { color: var(--muted); }
+    footer .company { font-weight: 700; margin-bottom: 6px; }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <div class="logo">지소</div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container">
+        <div class="badge">출시 준비 중</div>
+        <h1>믿을 수 있는 <em>지인</em>이<br />소개해주는 인연</h1>
+        <p>지소는 모르는 사람 속에서 헤매는 대신, 나를 잘 아는 친구의 네트워크를 통해 새로운 인연을 만나는 소개팅 서비스입니다.</p>
+      </div>
+    </section>
+
+    <section class="container features">
+      <div class="feature">
+        <div class="icon">🤝</div>
+        <h3>지인 기반 소개</h3>
+        <p>친구의 친구, 검증된 네트워크 안에서 신뢰할 수 있는 상대를 소개받아요.</p>
+      </div>
+      <div class="feature">
+        <div class="icon">🔮</div>
+        <h3>사주 궁합</h3>
+        <p>전통 사주 데이터를 바탕으로 두 사람의 궁합을 재미있게 풀어드려요.</p>
+      </div>
+      <div class="feature">
+        <div class="icon">💬</div>
+        <h3>부담 없는 대화</h3>
+        <p>서로 마음이 맞으면 채팅으로 자연스럽게 대화를 시작할 수 있어요.</p>
+      </div>
+    </section>
+
+    <section class="cta">
+      <div class="container">
+        <p>서비스 관련 문의는 언제든 환영합니다.</p>
+        <a href="mailto:gilpocha3@gmail.com">문의하기</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="company">스튜디오252</div>
+      <div>문의: <a href="mailto:gilpocha3@gmail.com">gilpocha3@gmail.com</a></div>
+    </div>
+  </footer>
+</body>
+</html>
