@@ -5,16 +5,24 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>지소 — 지인이 소개해주는 소개팅</title>
   <meta name="description" content="지소는 믿을 수 있는 지인 네트워크를 통해 새로운 인연을 소개받는 소개팅 서비스입니다." />
+  <link rel="icon" type="image/png" href="favicon.png" />
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     :root {
-      --bg: #fffdfa;
-      --text: #1f1b16;
-      --muted: #6b635a;
-      --accent: #e8543f;
-      --accent-soft: #fdeae6;
+      --bg: #fbfafc;
+      --text: #241f2e;
+      --muted: #6d6579;
+      --violet: #8b5cf6;
+      --purple: #6d3ae0;
+      --pink: #e84a9b;
+      --coral: #f0607a;
+      --teal: #1fb5a3;
+      --violet-soft: #f1ecfd;
+      --pink-soft: #fdecf4;
+      --teal-soft: #e4f7f4;
       --card: #ffffff;
-      --border: #eee7de;
+      --border: #ece7f2;
+      --grad: linear-gradient(120deg, #8b5cf6 0%, #c157c9 45%, #e84a9b 100%);
     }
     body {
       font-family: "Apple SD Gothic Neo", "Pretendard", "Noto Sans KR", -apple-system, BlinkMacSystemFont, sans-serif;
@@ -25,10 +33,42 @@
     }
     .container { max-width: 720px; margin: 0 auto; padding: 0 24px; }
 
-    header { padding: 28px 0; }
-    .logo { font-size: 20px; font-weight: 800; color: var(--accent); letter-spacing: -0.02em; }
+    header { padding: 24px 0; }
+    header .container { display: flex; align-items: center; gap: 10px; }
+    header img { width: 34px; height: 34px; border-radius: 9px; }
+    .logo-name {
+      font-size: 20px; font-weight: 800; letter-spacing: -0.02em;
+      background: var(--grad);
+      -webkit-background-clip: text; background-clip: text;
+      -webkit-text-fill-color: transparent; color: transparent;
+    }
 
-    .hero { padding: 72px 0 64px; text-align: center; }
+    .hero { padding: 56px 0 64px; text-align: center; position: relative; overflow: hidden; }
+    .hero::before {
+      content: "";
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(420px 320px at 18% 12%, rgba(139, 92, 246, 0.12), transparent 70%),
+        radial-gradient(420px 320px at 82% 20%, rgba(232, 74, 155, 0.10), transparent 70%),
+        radial-gradient(300px 240px at 60% 95%, rgba(31, 181, 163, 0.08), transparent 70%);
+      pointer-events: none;
+    }
+    .hero .container { position: relative; }
+    .hero-logo {
+      width: clamp(120px, 24vw, 168px);
+      height: auto;
+      border-radius: 28%;
+      box-shadow: 0 18px 44px -14px rgba(139, 92, 246, 0.35);
+      margin-bottom: 28px;
+    }
+    .badge {
+      display: inline-block;
+      background: var(--violet-soft);
+      color: var(--purple);
+      font-size: 13px; font-weight: 700;
+      padding: 6px 14px; border-radius: 999px;
+      margin-bottom: 20px;
+    }
     .hero h1 {
       font-size: clamp(28px, 6vw, 44px);
       font-weight: 800;
@@ -36,22 +76,17 @@
       line-height: 1.3;
       margin-bottom: 20px;
     }
-    .hero h1 em { font-style: normal; color: var(--accent); }
+    .hero h1 em {
+      font-style: normal;
+      background: var(--grad);
+      -webkit-background-clip: text; background-clip: text;
+      -webkit-text-fill-color: transparent; color: transparent;
+    }
     .hero p {
       font-size: clamp(15px, 2.5vw, 18px);
       color: var(--muted);
       max-width: 480px;
       margin: 0 auto;
-    }
-    .badge {
-      display: inline-block;
-      background: var(--accent-soft);
-      color: var(--accent);
-      font-size: 13px;
-      font-weight: 700;
-      padding: 6px 14px;
-      border-radius: 999px;
-      margin-bottom: 24px;
     }
 
     .features { padding: 24px 0 72px; display: grid; gap: 16px; }
@@ -59,24 +94,40 @@
     .feature {
       background: var(--card);
       border: 1px solid var(--border);
-      border-radius: 16px;
+      border-radius: 18px;
       padding: 28px 22px;
+      box-shadow: 0 4px 18px -12px rgba(36, 31, 46, 0.12);
     }
-    .feature .icon { font-size: 28px; margin-bottom: 12px; }
+    .feature .icon {
+      width: 44px; height: 44px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 22px;
+      border-radius: 13px;
+      margin-bottom: 14px;
+    }
+    .feature:nth-child(1) .icon { background: var(--violet-soft); }
+    .feature:nth-child(2) .icon { background: var(--pink-soft); }
+    .feature:nth-child(3) .icon { background: var(--teal-soft); }
     .feature h3 { font-size: 16px; font-weight: 700; margin-bottom: 8px; letter-spacing: -0.01em; }
     .feature p { font-size: 14px; color: var(--muted); }
 
-    .cta { text-align: center; padding: 0 0 80px; }
-    .cta p { color: var(--muted); font-size: 15px; margin-bottom: 16px; }
+    .cta { text-align: center; padding: 0 0 84px; }
+    .cta p { color: var(--muted); font-size: 15px; margin-bottom: 18px; }
     .cta a {
       display: inline-block;
-      background: var(--accent);
+      background: var(--grad);
       color: #fff;
       text-decoration: none;
       font-weight: 700;
       font-size: 15px;
-      padding: 14px 32px;
-      border-radius: 12px;
+      padding: 14px 36px;
+      border-radius: 14px;
+      box-shadow: 0 10px 24px -10px rgba(232, 74, 155, 0.5);
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+    }
+    .cta a:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 14px 28px -10px rgba(232, 74, 155, 0.55);
     }
 
     footer {
@@ -93,14 +144,16 @@
 <body>
   <header>
     <div class="container">
-      <div class="logo">지소</div>
+      <img src="logo.png" alt="지소 로고" />
+      <span class="logo-name">지소</span>
     </div>
   </header>
 
   <main>
     <section class="hero">
       <div class="container">
-        <div class="badge">출시 준비 중</div>
+        <img class="hero-logo" src="logo.png" alt="지소 앱 아이콘" />
+        <div><span class="badge">출시 준비 중</span></div>
         <h1>믿을 수 있는 <em>지인</em>이<br />소개해주는 인연</h1>
         <p>지소는 모르는 사람 속에서 헤매는 대신, 나를 잘 아는 친구의 네트워크를 통해 새로운 인연을 만나는 소개팅 서비스입니다.</p>
       </div>
