@@ -1,178 +1,241 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>지소 — 지인이 소개해주는 소개팅</title>
-  <meta name="description" content="지소는 믿을 수 있는 지인 네트워크를 통해 새로운 인연을 소개받는 소개팅 서비스입니다." />
-  <link rel="icon" type="image/png" href="favicon.png" />
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    :root {
-      --bg: #fbfafc;
-      --text: #241f2e;
-      --muted: #6d6579;
-      --violet: #8b5cf6;
-      --purple: #6d3ae0;
-      --pink: #e84a9b;
-      --coral: #f0607a;
-      --teal: #1fb5a3;
-      --violet-soft: #f1ecfd;
-      --pink-soft: #fdecf4;
-      --teal-soft: #e4f7f4;
-      --card: #ffffff;
-      --border: #ece7f2;
-      --grad: linear-gradient(120deg, #8b5cf6 0%, #c157c9 45%, #e84a9b 100%);
-    }
-    body {
-      font-family: "Apple SD Gothic Neo", "Pretendard", "Noto Sans KR", -apple-system, BlinkMacSystemFont, sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.6;
-      -webkit-font-smoothing: antialiased;
-    }
-    .container { max-width: 720px; margin: 0 auto; padding: 0 24px; }
-
-    .hero { padding: 80px 0 64px; text-align: center; position: relative; overflow: hidden; }
-    .hero::before {
-      content: "";
-      position: absolute; inset: 0;
-      background:
-        radial-gradient(420px 320px at 18% 12%, rgba(139, 92, 246, 0.12), transparent 70%),
-        radial-gradient(420px 320px at 82% 20%, rgba(232, 74, 155, 0.10), transparent 70%),
-        radial-gradient(300px 240px at 60% 95%, rgba(31, 181, 163, 0.08), transparent 70%);
-      pointer-events: none;
-    }
-    .hero .container { position: relative; }
-    .hero-logo {
-      width: clamp(120px, 24vw, 168px);
-      height: auto;
-      border-radius: 28%;
-      box-shadow: 0 18px 44px -14px rgba(139, 92, 246, 0.35);
-      margin-bottom: 28px;
-    }
-    .badge {
-      display: inline-block;
-      background: var(--violet-soft);
-      color: var(--purple);
-      font-size: 13px; font-weight: 700;
-      padding: 6px 14px; border-radius: 999px;
-      margin-bottom: 20px;
-    }
-    .hero h1 {
-      font-size: clamp(28px, 6vw, 44px);
-      font-weight: 800;
-      letter-spacing: -0.03em;
-      line-height: 1.3;
-      margin-bottom: 20px;
-    }
-    .hero h1 em {
-      font-style: normal;
-      background: var(--grad);
-      -webkit-background-clip: text; background-clip: text;
-      -webkit-text-fill-color: transparent; color: transparent;
-    }
-    .hero p {
-      font-size: clamp(15px, 2.5vw, 18px);
-      color: var(--muted);
-      max-width: 480px;
-      margin: 0 auto;
-    }
-
-    .features { padding: 24px 0 72px; display: grid; gap: 16px; }
-    @media (min-width: 600px) { .features { grid-template-columns: repeat(3, 1fr); } }
-    .feature {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 18px;
-      padding: 28px 22px;
-      box-shadow: 0 4px 18px -12px rgba(36, 31, 46, 0.12);
-    }
-    .feature .icon {
-      width: 44px; height: 44px;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 22px;
-      border-radius: 13px;
-      margin-bottom: 14px;
-    }
-    .feature:nth-child(1) .icon { background: var(--violet-soft); }
-    .feature:nth-child(2) .icon { background: var(--pink-soft); }
-    .feature:nth-child(3) .icon { background: var(--teal-soft); }
-    .feature h3 { font-size: 16px; font-weight: 700; margin-bottom: 8px; letter-spacing: -0.01em; }
-    .feature p { font-size: 14px; color: var(--muted); }
-
-    .cta { text-align: center; padding: 0 0 84px; }
-    .cta p { color: var(--muted); font-size: 15px; margin-bottom: 18px; }
-    .cta a {
-      display: inline-block;
-      background: var(--grad);
-      color: #fff;
-      text-decoration: none;
-      font-weight: 700;
-      font-size: 15px;
-      padding: 14px 36px;
-      border-radius: 14px;
-      box-shadow: 0 10px 24px -10px rgba(232, 74, 155, 0.5);
-      transition: transform 0.15s ease, box-shadow 0.15s ease;
-    }
-    .cta a:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 14px 28px -10px rgba(232, 74, 155, 0.55);
-    }
-
-    footer {
-      border-top: 1px solid var(--border);
-      padding: 32px 0 48px;
-      font-size: 13px;
-      color: var(--muted);
-      text-align: center;
-    }
-    footer a { color: var(--muted); }
-    footer .company { font-weight: 700; margin-bottom: 6px; }
-  </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>지소 — 지인이 소개해주는 소개팅</title>
+<meta name="description" content="지소는 믿을 수 있는 지인 네트워크를 통해 새로운 인연을 소개받는 소개팅 서비스입니다.">
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+html,body{margin:0;padding:0;background:#fafafc;color:#222;font-family:'IBM Plex Sans KR','Noto Sans KR',Helvetica,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:#7c5cff;text-decoration:none}a:hover{color:#6244e6}
+@keyframes blobA{0%{transform:translate(0,0) scale(1)}33%{transform:translate(40vw,20vh) scale(1.3)}66%{transform:translate(10vw,50vh) scale(.9)}100%{transform:translate(0,0) scale(1)}}
+@keyframes blobB{0%{transform:translate(0,0) scale(1)}33%{transform:translate(-40vw,-25vh) scale(1.2)}66%{transform:translate(-10vw,-55vh) scale(1.35)}100%{transform:translate(0,0) scale(1)}}
+@keyframes blobC{0%{transform:translate(0,0) scale(1)}50%{transform:translate(-30vw,30vh) scale(1.4)}100%{transform:translate(0,0) scale(1)}}
+@keyframes rise{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:translateY(0)}}
+@keyframes pulse{0%,100%{opacity:.55}50%{opacity:1}}
+@media (prefers-reduced-motion:reduce){*{animation-duration:.01ms!important}}
+.contact-btn{color:#222;background:rgba(255,255,255,.45)}
+.contact-btn:hover{color:#222;background:rgba(255,255,255,.85)}
+.cta-btn{transition:transform .2s ease}
+.cta-btn:hover{transform:translateY(-2px);color:#fff;background:linear-gradient(90deg,#6a4cff,#d13fc0)}
+.feature{max-width:1040px;margin:0 auto;padding:12vh 24px;display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:48px;align-items:center;opacity:0;transform:translateY(48px);transition:opacity .9s ease,transform .9s cubic-bezier(.2,.7,.2,1)}
+.feature.shown{opacity:1;transform:translateY(0)}
+.feature.alt{direction:rtl}
+.feature>div{direction:ltr}
+</style>
 </head>
 <body>
-  <main>
-    <section class="hero">
-      <div class="container">
-        <img class="hero-logo" src="logo.png" alt="지소 앱 아이콘" />
-        <div><span class="badge">출시 준비 중</span></div>
-        <h1>믿을 수 있는 <em>지인</em>이<br />소개해주는 인연</h1>
-        <p>지소는 모르는 사람 속에서 헤매는 대신, 나를 잘 아는 친구의 네트워크를 통해 새로운 인연을 만나는 소개팅 서비스입니다.</p>
+<div style="position:relative;min-height:100vh;overflow:hidden">
+  <div style="position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden">
+    <div style="position:absolute;top:-10%;left:-10%;width:42vw;height:42vw;border-radius:50%;background:radial-gradient(circle,oklch(0.95 0.035 290) 0%,transparent 70%);filter:blur(70px);opacity:.6;animation:blobA 18s ease-in-out infinite"></div>
+    <div style="position:absolute;bottom:-15%;right:-10%;width:42vw;height:42vw;border-radius:50%;background:radial-gradient(circle,oklch(0.955 0.03 340) 0%,transparent 70%);filter:blur(70px);opacity:.6;animation:blobB 22s ease-in-out infinite"></div>
+    <div style="position:absolute;top:35%;left:40%;width:34vw;height:34vw;border-radius:50%;background:radial-gradient(circle,oklch(0.96 0.025 210) 0%,transparent 70%);filter:blur(80px);opacity:.5;animation:blobC 26s ease-in-out infinite"></div>
+  </div>
+
+  <div style="position:relative;z-index:1">
+    <header style="display:flex;align-items:center;justify-content:space-between;max-width:1040px;margin:0 auto;padding:28px 24px">
+      <div style="display:flex;align-items:center;gap:10px">
+        <img src="logo.png" alt="지소 앱 아이콘" style="width:36px;height:36px;border-radius:10px;object-fit:cover">
+        <span style="font-weight:700;font-size:18px;letter-spacing:-0.01em">지소</span>
+      </div>
+      <a href="mailto:gilpocha3@gmail.com" class="contact-btn" style="font-size:14px;font-weight:500;padding:9px 16px;border:1px solid rgba(34,34,34,.14);border-radius:999px">문의하기</a>
+    </header>
+
+    <section style="max-width:1040px;margin:0 auto;padding:10vh 24px 14vh;text-align:center">
+      <div style="display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:500;color:#6a4cff;background:#efeaff;padding:6px 14px;border-radius:999px;animation:rise .8s ease both">
+        <span style="width:7px;height:7px;border-radius:50%;background:#6a4cff;animation:pulse 2s ease-in-out infinite"></span>출시 준비 중
+      </div>
+      <h1 style="font-size:clamp(34px,6vw,66px);font-weight:700;line-height:1.18;letter-spacing:-0.03em;margin:28px auto 22px;max-width:16ch;text-wrap:pretty;animation:rise .9s .1s ease both">믿을 수 있는 <em style="font-style:normal;background:linear-gradient(90deg,#7c5cff,#e04fd0);-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent">지인</em>이<br>소개해주는 인연</h1>
+      <p style="font-size:clamp(16px,1.6vw,20px);line-height:1.7;color:rgba(34,34,34,.7);max-width:34em;margin:0 auto;text-wrap:pretty;animation:rise 1s .2s ease both">지소는 모르는 사람 속에서 헤매는 대신, 나를 잘 아는 친구의 네트워크를 통해 새로운 인연을 만나는 소개팅 서비스입니다.</p>
+    </section>
+
+    <section class="feature" data-reveal>
+      <div>
+        <h2 style="font-size:clamp(28px,3.6vw,44px);font-weight:700;letter-spacing:-0.025em;line-height:1.25;margin:0 0 18px">친구의 지인과 만나보세요</h2>
+        <p style="font-size:clamp(16px,1.4vw,19px);line-height:1.75;color:rgba(34,34,34,.7);margin:0;max-width:30em;text-wrap:pretty">친구의 친구, 검증된 네트워크 안에서 마음에 드는 상대에게 먼저 연락하고 내 취향에 맞는 상대를 소개받을 수 있어요</p>
+      </div>
+      <div style="display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:20px">
+        <div style="width:300px;background:#fff;border-radius:36px;border:1px solid rgba(34,34,34,.08);box-shadow:0 40px 80px -30px rgba(80,50,140,.25);overflow:hidden;font-size:13px;color:#222">
+          <div style="padding:22px 20px 0;text-align:center">
+            <div style="text-align:left;font-size:18px;line-height:1">←</div>
+            <div style="width:84px;height:84px;margin:14px auto 0;border-radius:50%;overflow:hidden;background:#f2f2f3"><img src="avatars/host.png" alt="박민준" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+            <div style="font-size:20px;font-weight:700;margin-top:12px">박민준</div>
+            <span style="display:inline-block;margin-top:8px;padding:4px 10px;border-radius:999px;background:#efeaff;color:#6a4cff;font-size:11px;font-weight:600">소개해주기</span>
+            <div style="margin-top:8px;color:rgba(34,34,34,.55);font-size:12px">함께 아는 친구 8명</div>
+          </div>
+          <div style="height:1px;background:rgba(34,34,34,.06);margin-top:18px"></div>
+          <div style="padding:18px 20px 12px">
+            <div style="font-size:15px;font-weight:700">박민준님을 통해 만날 수 있는 사람</div>
+            <div style="font-size:11px;color:rgba(34,34,34,.5);margin-top:4px">카드를 눌러 프로필을 보고 대화를 시작해보세요</div>
+          </div>
+          <div style="display:flex;align-items:center;gap:12px;padding:10px 20px;border-top:1px solid rgba(34,34,34,.05)">
+            <div style="width:44px;height:44px;flex:none;border-radius:50%;overflow:hidden;background:#f2f2f3"><img src="avatars/p1.png" alt="김O우, 27" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+            <div style="flex:1;min-width:0">
+              <div style="font-weight:700;font-size:14px">김O우, 27</div>
+              <div style="font-size:12px;color:rgba(34,34,34,.7)">IT/개발</div>
+              <div style="font-size:11px;color:rgba(34,34,34,.45)">서울 마포</div>
+            </div>
+            <span style="color:rgba(34,34,34,.3)">›</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:12px;padding:10px 20px;border-top:1px solid rgba(34,34,34,.05)">
+            <div style="width:44px;height:44px;flex:none;border-radius:50%;overflow:hidden;background:#f2f2f3"><img src="avatars/p2.png" alt="박O연, 26" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+            <div style="flex:1;min-width:0">
+              <div style="font-weight:700;font-size:14px">박O연, 26</div>
+              <div style="font-size:12px;color:rgba(34,34,34,.7)">디자인</div>
+              <div style="font-size:11px;color:rgba(34,34,34,.45)">서울 성동</div>
+            </div>
+            <span style="color:rgba(34,34,34,.3)">›</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:12px;padding:10px 20px;border-top:1px solid rgba(34,34,34,.05)">
+            <div style="width:44px;height:44px;flex:none;border-radius:50%;overflow:hidden;background:#f2f2f3"><img src="avatars/p3.png" alt="이O늘, 28" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+            <div style="flex:1;min-width:0">
+              <div style="font-weight:700;font-size:14px">이O늘, 28</div>
+              <div style="font-size:12px;color:rgba(34,34,34,.7)">마케팅</div>
+              <div style="font-size:11px;color:rgba(34,34,34,.45)">서울 강남</div>
+            </div>
+            <span style="color:rgba(34,34,34,.3)">›</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:12px;padding:10px 20px;border-top:1px solid rgba(34,34,34,.05)">
+            <div style="width:44px;height:44px;flex:none;border-radius:50%;overflow:hidden;background:#f2f2f3"><img src="avatars/p4.png" alt="최O지, 25" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+            <div style="flex:1;min-width:0">
+              <div style="font-weight:700;font-size:14px">최O지, 25</div>
+              <div style="font-size:12px;color:rgba(34,34,34,.7)">의료</div>
+              <div style="font-size:11px;color:rgba(34,34,34,.45)">서울 송파</div>
+            </div>
+            <span style="color:rgba(34,34,34,.3)">›</span>
+          </div>
+          <div style="padding:14px 20px 20px"><div style="background:#1a1a1a;color:#fff;text-align:center;padding:14px;border-radius:14px;font-weight:600;font-size:14px">메시지 보내기</div></div>
+        </div>
       </div>
     </section>
 
-    <section class="container features">
-      <div class="feature">
-        <div class="icon">🤝</div>
-        <h3>지인 기반 소개</h3>
-        <p>친구의 친구, 검증된 네트워크 안에서 신뢰할 수 있는 상대를 소개받아요.</p>
+    <section class="feature alt" data-reveal>
+      <div>
+        <h2 style="font-size:clamp(28px,3.6vw,44px);font-weight:700;letter-spacing:-0.025em;line-height:1.25;margin:0 0 18px">친구가 찾던 이상형을<br>소개해주세요</h2>
+        <p style="font-size:clamp(16px,1.4vw,19px);line-height:1.75;color:rgba(34,34,34,.7);margin:0;max-width:30em;text-wrap:pretty">친구가 평소에 찾던 상대가 나의 지인이라면 먼저 소개해주세요. 배우자나 이성친구가 있다면 소개받지 않고 친구에게 소개만 해주는 것도 가능합니다.</p>
       </div>
-      <div class="feature">
-        <div class="icon">🔮</div>
-        <h3>사주 궁합</h3>
-        <p>전통 사주 데이터를 바탕으로 두 사람의 궁합을 재미있게 풀어드려요.</p>
-      </div>
-      <div class="feature">
-        <div class="icon">💬</div>
-        <h3>부담 없는 대화</h3>
-        <p>서로 마음이 맞으면 채팅으로 자연스럽게 대화를 시작할 수 있어요.</p>
+      <div style="display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:20px">
+        <div style="width:300px;background:#fff;border-radius:36px;border:1px solid rgba(34,34,34,.08);box-shadow:0 40px 80px -30px rgba(80,50,140,.25);overflow:hidden;font-size:13px;color:#222">
+          <div style="height:90px;background:#8d8d8d;position:relative"><div style="position:absolute;left:0;right:0;bottom:-1px;height:28px;background:#fff;border-radius:20px 20px 0 0"></div><div style="position:absolute;left:50%;bottom:16px;width:36px;height:4px;border-radius:2px;background:#ddd;transform:translateX(-50%)"></div></div>
+          <div style="text-align:center;font-size:16px;font-weight:700;padding:2px 0 14px">친구에게 주선하기</div>
+          <div style="margin:0 18px;background:#f7f7f8;border-radius:16px;padding:14px;display:flex;align-items:center;gap:12px">
+            <img src="avatars/yerin.png" alt="최예린" style="width:48px;height:48px;border-radius:50%;object-fit:cover;flex:none">
+            <div><div style="font-size:16px;font-weight:700">최예린, 31</div><div style="font-size:11px;color:rgba(34,34,34,.55);margin-top:2px">공무원 · 경기 수원</div></div>
+          </div>
+          <div style="padding:18px 18px 0"><div style="font-size:14px;font-weight:600">소개할 친구를 선택해주세요</div><div style="font-size:11px;color:rgba(34,34,34,.5);margin-top:3px">소개받기 중인 이성 친구만 보여요</div></div>
+          <div style="display:flex;flex-direction:column;gap:8px;padding:12px 18px 0">
+            <div style="display:flex;align-items:center;gap:12px;padding:12px 14px;border-radius:14px;border:1.5px solid #6a4cff;background:#efeaff"><img src="avatars/host.png" alt="박민준" style="width:36px;height:36px;border-radius:50%;object-fit:cover;flex:none"><div style="flex:1"><div style="font-weight:700;font-size:13px">박민준</div><div style="font-size:11px;color:rgba(34,34,34,.5)">29세 · 서울 강남</div></div><div style="width:16px;height:16px;border-radius:50%;border:5px solid #6a4cff;background:#fff;box-sizing:border-box"></div></div>
+            <div style="display:flex;align-items:center;gap:12px;padding:12px 14px;border-radius:14px;border:1px solid rgba(34,34,34,.1)"><img src="avatars/jeonghun.png" alt="이정훈" style="width:36px;height:36px;border-radius:50%;object-fit:cover;flex:none"><div style="flex:1"><div style="font-weight:700;font-size:13px">이정훈</div><div style="font-size:11px;color:rgba(34,34,34,.5)">30세 · 서울 마포</div></div><div style="width:16px;height:16px;border-radius:50%;border:1.5px solid #ccc;box-sizing:border-box"></div></div>
+            <div style="display:flex;align-items:center;gap:12px;padding:12px 14px;border-radius:14px;border:1px solid rgba(34,34,34,.1)"><img src="avatars/seongmin.png" alt="최성민" style="width:36px;height:36px;border-radius:50%;object-fit:cover;flex:none"><div style="flex:1"><div style="font-weight:700;font-size:13px">최성민</div><div style="font-size:11px;color:rgba(34,34,34,.5)">28세 · 서울 성수</div></div><div style="width:16px;height:16px;border-radius:50%;border:1.5px solid #ccc;box-sizing:border-box"></div></div>
+          </div>
+          <div style="padding:16px 18px 0"><div style="font-size:12px;color:rgba(34,34,34,.6)">친구에게 한마디 (선택)</div><div style="margin-top:8px;border:1px solid rgba(34,34,34,.1);border-radius:12px;padding:12px;min-height:60px;font-size:13px">너 이상형인데 만나봐 😊</div><div style="text-align:right;font-size:10px;color:rgba(34,34,34,.4);margin-top:6px">12 / 200</div></div>
+          <div style="padding:10px 18px 20px"><div style="background:#1a1a1a;color:#fff;text-align:center;padding:14px;border-radius:14px;font-weight:600;font-size:14px">추천 보내기</div></div>
+        </div>
       </div>
     </section>
 
-    <section class="cta">
-      <div class="container">
-        <p>서비스 관련 문의는 언제든 환영합니다.</p>
-        <a href="mailto:gilpocha3@gmail.com">문의하기</a>
+    <section class="feature" data-reveal>
+      <div>
+        <h2 style="font-size:clamp(28px,3.6vw,44px);font-weight:700;letter-spacing:-0.025em;line-height:1.25;margin:0 0 18px">사주 궁합을 확인해보세요</h2>
+        <p style="font-size:clamp(16px,1.4vw,19px);line-height:1.75;color:rgba(34,34,34,.7);margin:0;max-width:30em;text-wrap:pretty">전통 사주 데이터를 바탕으로 두 사람의 궁합을 재미있게 풀어드려요. 왠지 모르게 끌리는 느낌, 사주로 먼저 확인해보는 건 어떨까요?</p>
+      </div>
+      <div style="display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:20px">
+        <div style="width:300px;background:#fff;border-radius:36px;border:1px solid rgba(34,34,34,.08);box-shadow:0 40px 80px -30px rgba(80,50,140,.25);overflow:hidden;font-size:13px;color:#222">
+          <div style="position:relative;height:250px;background:#fdecee">
+            <img src="avatars/minji-hero.png" alt="김민지" style="width:100%;height:100%;object-fit:cover;display:block">
+            <div style="position:absolute;top:14px;left:14px;width:30px;height:30px;border-radius:50%;background:rgba(255,255,255,.85);display:flex;align-items:center;justify-content:center;font-size:14px">←</div>
+            <div style="position:absolute;bottom:12px;right:12px;padding:3px 9px;border-radius:999px;background:rgba(0,0,0,.4);color:#fff;font-size:10px">1 / 5</div>
+          </div>
+          <div style="padding:16px 20px 0">
+            <div style="font-size:20px;font-weight:700">김민지, 28</div>
+            <div style="font-size:12px;margin-top:4px">IT/개발 (카카오)</div>
+            <div style="font-size:11px;color:rgba(34,34,34,.5);margin-top:2px">서울 강남 · 나와 약 3.2km 떨어져 있어요</div>
+          </div>
+          <div style="height:1px;background:rgba(34,34,34,.06);margin:16px 20px 0"></div>
+          <div style="padding:14px 20px 0">
+            <div style="font-size:14px;font-weight:700">받은 평가</div>
+            <div style="display:flex;align-items:center;gap:6px;margin-top:8px"><span style="display:inline-flex;font-size:13px;letter-spacing:1px;line-height:1"><span style="color:#6a4cff">★★★★</span><span style="position:relative;color:#e5e5e5">★<span style="position:absolute;left:0;top:0;width:50%;overflow:hidden;color:#6a4cff">★</span></span></span><span style="font-weight:700;font-size:14px">4.5</span><span style="font-size:10px;color:rgba(34,34,34,.45)">평가 23개</span></div>
+            <div style="display:flex;gap:6px;margin-top:10px;flex-wrap:wrap">
+              <span style="padding:5px 10px;border-radius:999px;background:#f7f7f8;font-size:11px">편했어요 <span style="color:rgba(34,34,34,.45)">18</span></span>
+              <span style="padding:5px 10px;border-radius:999px;background:#f7f7f8;font-size:11px">센스있어요 <span style="color:rgba(34,34,34,.45)">14</span></span>
+              <span style="padding:5px 10px;border-radius:999px;background:#f7f7f8;font-size:11px">다정해요 <span style="color:rgba(34,34,34,.45)">11</span></span>
+            </div>
+          </div>
+          <div style="height:1px;background:rgba(34,34,34,.06);margin:16px 20px 0"></div>
+          <div style="padding:14px 20px 0">
+            <div style="font-size:14px;font-weight:700">친구와의 관계</div>
+            <div style="display:flex;flex-direction:column;gap:10px;margin-top:10px">
+              <div style="display:flex;align-items:center;gap:10px;font-size:12px;color:rgba(34,34,34,.7)"><img src="avatars/host.png" alt="박민준" style="width:28px;height:28px;border-radius:50%;object-fit:cover">박민준 님과 직접 아는 사이</div>
+              <div style="display:flex;align-items:center;gap:10px;font-size:12px;color:rgba(34,34,34,.7)"><img src="avatars/haeun.png" alt="김하은" style="width:28px;height:28px;border-radius:50%;object-fit:cover">김하은 님과 1명을 거쳐 아는 사이</div>
+              <div style="display:flex;align-items:center;gap:10px;font-size:12px;color:rgba(34,34,34,.7)"><img src="avatars/jeonghun.png" alt="이정훈" style="width:28px;height:28px;border-radius:50%;object-fit:cover">이정훈 님과 직접 아는 사이</div>
+            </div>
+          </div>
+          <div style="height:1px;background:rgba(34,34,34,.06);margin:16px 20px 0"></div>
+          <div style="padding:14px 20px 0">
+            <div style="font-size:14px;font-weight:700">사주 궁합</div>
+            <div style="margin-top:10px;background:#f7f7f8;border-radius:16px;padding:14px">
+              <div style="display:flex;align-items:center;gap:12px">
+                <div style="width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,#7c5cff,#e04fd0);color:#fff;font-weight:700;font-size:16px;display:flex;align-items:center;justify-content:center;flex:none;box-shadow:0 8px 20px -8px rgba(124,92,255,.6)">85</div>
+                <div style="font-size:11px;color:rgba(34,34,34,.7);line-height:1.5">두 분의 사주 궁합 점수는<br><span style="font-size:14px;font-weight:700;color:#222">85점이에요!</span></div>
+              </div>
+              <div style="font-size:11px;color:rgba(34,34,34,.7);line-height:1.6;margin-top:12px">서로의 밝고 긍정적인 에너지가 관계를 돈독하게 해요. 특히 대화와 소통에서 잘 맞는 궁합이에요.</div>
+              <div style="font-size:11px;color:rgba(34,34,34,.7);line-height:1.6;margin-top:8px">다만 감정 표현 방식에 차이가 있을 수 있으니, 직접 만나 서로의 성향을 확인해보세요!</div>
+            </div>
+          </div>
+          <div style="padding:14px 20px 20px"><div style="background:#1a1a1a;color:#fff;text-align:center;padding:14px;border-radius:14px;font-weight:600;font-size:14px">대화 시작하기</div></div>
+        </div>
       </div>
     </section>
-  </main>
 
-  <footer>
-    <div class="container">
-      <div class="company">스튜디오252</div>
-      <div>문의: <a href="mailto:gilpocha3@gmail.com">gilpocha3@gmail.com</a></div>
-    </div>
-  </footer>
+    <section class="feature alt" data-reveal>
+      <div>
+        <h2 style="font-size:clamp(28px,3.6vw,44px);font-weight:700;letter-spacing:-0.025em;line-height:1.25;margin:0 0 18px">바로 대화해보세요</h2>
+        <p style="font-size:clamp(16px,1.4vw,19px);line-height:1.75;color:rgba(34,34,34,.7);margin:0;max-width:30em;text-wrap:pretty">서로 마음이 맞으면 채팅으로 자연스럽게 대화를 시작할 수 있어요. 채팅 후엔 상대방에 대한 평가도 남길 수 있어요.</p>
+      </div>
+      <div style="display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:20px">
+        <div style="width:300px;background:#fff;border-radius:36px;border:1px solid rgba(34,34,34,.08);box-shadow:0 40px 80px -30px rgba(80,50,140,.25);overflow:hidden;font-size:12px;color:#222">
+          <div style="display:flex;align-items:center;justify-content:space-between;padding:18px 18px 12px;border-bottom:1px solid rgba(34,34,34,.06)"><span style="font-size:16px;line-height:1">←</span><span style="font-size:15px;font-weight:700">김민지</span><img src="avatars/minji.png" alt="김민지" style="width:28px;height:28px;border-radius:50%;object-fit:cover"></div>
+          <div style="padding:14px 14px 10px;display:flex;flex-direction:column;gap:10px">
+            <div style="align-self:center;padding:5px 10px;border-radius:999px;background:#f2f2f3;font-size:10px;color:rgba(34,34,34,.55)">2026년 4월 18일 금요일</div>
+            <div style="display:flex;align-items:flex-end;gap:6px;align-self:flex-start;max-width:85%"><div style="background:#f2f2f3;border-radius:14px 14px 14px 4px;padding:10px 12px;line-height:1.5">안녕하세요! 소개받게 되었어요 반갑습니다 😊</div><span style="font-size:9px;color:rgba(34,34,34,.4);white-space:nowrap">오후 2:30</span></div>
+            <div style="display:flex;align-items:flex-end;gap:6px;align-self:flex-end;max-width:85%"><span style="font-size:9px;color:rgba(34,34,34,.4);white-space:nowrap">오후 2:31</span><div style="background:#1a1a1a;color:#fff;border-radius:14px 14px 4px 14px;padding:10px 12px;line-height:1.5">안녕하세요! 반가워요 😄</div></div>
+            <div style="display:flex;align-items:flex-end;gap:6px;align-self:flex-start;max-width:85%"><div style="background:#f2f2f3;border-radius:14px 14px 14px 4px;padding:10px 12px;line-height:1.5">프로필 봤는데 운동 좋아하시는군요!</div><span style="font-size:9px;color:rgba(34,34,34,.4);white-space:nowrap">오후 2:32</span></div>
+            <div style="display:flex;align-items:flex-end;gap:6px;align-self:flex-end;max-width:85%"><span style="font-size:9px;color:rgba(34,34,34,.4);white-space:nowrap">오후 2:33</span><div style="background:#1a1a1a;color:#fff;border-radius:14px 14px 4px 14px;padding:10px 12px;line-height:1.5">네! 주말마다 등산이나 러닝 다닙니다</div></div>
+            <div style="display:flex;align-items:flex-end;gap:6px;align-self:flex-start;max-width:85%"><div style="background:#f2f2f3;border-radius:14px 14px 14px 4px;padding:10px 12px;line-height:1.5">오 저도 등산 좋아해요! 혹시 주말에 시간 되세요?</div><span style="font-size:9px;color:rgba(34,34,34,.4);white-space:nowrap">오후 2:35</span></div>
+            <div style="display:flex;align-items:flex-end;gap:6px;align-self:flex-end;max-width:85%"><span style="font-size:9px;color:rgba(34,34,34,.4);white-space:nowrap">오후 2:36</span><div style="background:#1a1a1a;color:#fff;border-radius:14px 14px 4px 14px;padding:10px 12px;line-height:1.5">주말에 시간 될 것 같아요! 어디로 가실 생각이세요?</div></div>
+            <div style="display:flex;align-items:flex-end;gap:6px;align-self:flex-start;max-width:85%"><div style="background:#f2f2f3;border-radius:14px 14px 14px 4px;padding:10px 12px;line-height:1.5">북한산 어떠세요? 요즘 단풍이 예쁘다고 하더라고요</div><span style="font-size:9px;color:rgba(34,34,34,.4);white-space:nowrap">오후 2:38</span></div>
+          </div>
+          <div style="display:flex;align-items:center;gap:8px;padding:10px 14px 18px;border-top:1px solid rgba(34,34,34,.06)"><div style="flex:1;background:#f2f2f3;border-radius:12px;padding:12px 14px;color:rgba(34,34,34,.4)">메시지를 입력하세요</div><div style="width:36px;height:36px;border-radius:50%;background:#1a1a1a;color:#fff;display:flex;align-items:center;justify-content:center;font-size:14px">↑</div></div>
+        </div>
+      </div>
+    </section>
+
+    <section style="max-width:1040px;margin:0 auto;padding:14vh 24px 10vh;text-align:center">
+      <h2 style="font-size:clamp(24px,3vw,36px);font-weight:700;letter-spacing:-0.02em;margin:0 0 14px">서비스 관련 문의는 언제든 환영합니다.</h2>
+      <a href="mailto:gilpocha3@gmail.com" class="cta-btn" style="display:inline-block;margin-top:20px;padding:16px 34px;border-radius:999px;background:linear-gradient(90deg,#7c5cff,#e04fd0);color:#fff;font-weight:600;font-size:16px;box-shadow:0 18px 40px -18px rgba(124,92,255,.5)">문의하기</a>
+    </section>
+
+    <footer style="max-width:1040px;margin:0 auto;padding:32px 24px 48px;display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;font-size:14px;color:rgba(34,34,34,.7);border-top:1px solid rgba(34,34,34,.1)">
+      <span>스튜디오252</span>
+      <span>문의: <a href="mailto:gilpocha3@gmail.com" style="color:rgba(34,34,34,.7)">gilpocha3@gmail.com</a></span>
+    </footer>
+  </div>
+</div>
+<script>
+(function () {
+  var obs = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (e.isIntersecting) {
+        e.target.classList.add('shown');
+        obs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.3 });
+  document.querySelectorAll('[data-reveal]').forEach(function (el) { obs.observe(el); });
+})();
+</script>
 </body>
 </html>
